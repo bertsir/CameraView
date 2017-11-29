@@ -5,7 +5,7 @@ An Android CameraView
 
 引入：
 
-compile 'cn.bertsir.Cameralibary:cameralibary:1.0.1'
+compile 'cn.bertsir.Cameralibary:cameralibary:1.0.3'
 
 布局:
 
@@ -67,6 +67,36 @@ OK,就这么简单，一个摄像头View就创建好了
      */
     public Boolean currentCameraIsFront()
 
+### 2017.11.29 更新
+新增摄像头高斯模糊功能
+		
+布局新增：
+
+	<cn.bertsir.cameralibary.view.BlurPreviewView
+         android:id="@+id/bpv"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+	</cn.bertsir.cameralibary.view.CameraView>
+
+代码：
+
+				CameraBlurUtils.getInstance().init(this);//初始化高斯模糊工具
+                cv.setPreviewFrameListener(new PreviewFrameListener() {
+                    @Override
+                    public void onPreviewFrameListener(byte[] data, Camera camera) {
+                        bpv.setBlurFrame(CameraBlurUtils.getInstance().blur(data,camera,15f));
+                    }
+                });
+
+项目build.gradle中新增
+
+    defaultConfig {
+        .......
+
+        renderscriptTargetApi 21
+        renderscriptSupportModeEnabled true
+    }
+		
 
 具体使用方法参考Demo
 

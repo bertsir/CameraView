@@ -14,6 +14,8 @@ import android.view.SurfaceView;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.bertsir.cameralibary.InterFace.PreviewFrameListener;
+
 /**
  * Created by Bert on 2017/2/21.
  */
@@ -27,6 +29,12 @@ public class CameraHelper {
     public static int CAMERA_BACK = 0;
     public static int CAMERA_FRONT = 1;
     private int current_camrea = CAMERA_BACK;
+
+    public void setmPreviewFrameListener(PreviewFrameListener mPreviewFrameListener) {
+        this.mPreviewFrameListener = mPreviewFrameListener;
+    }
+
+    private PreviewFrameListener mPreviewFrameListener;
 
 
     public static CameraHelper getInstance() {
@@ -85,6 +93,16 @@ public class CameraHelper {
                 mCamera.setParameters(parameters);
                 mCamera.setPreviewDisplay(mSurfaceholder);
                 mCamera.startPreview();
+
+                mCamera.setPreviewCallback(new Camera.PreviewCallback() {
+                    @Override
+                    public void onPreviewFrame(byte[] data, Camera camera) {
+                        if(mPreviewFrameListener != null){
+                            mPreviewFrameListener.onPreviewFrameListener(data,camera);
+                        }
+                    }
+                });
+
             } catch (Exception e) {
                 e.printStackTrace();
                 sv.setBackgroundColor(Color.BLACK);

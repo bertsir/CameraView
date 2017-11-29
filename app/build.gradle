@@ -6,10 +6,12 @@ android {
     defaultConfig {
         applicationId "cn.bertsir.mycameralibary"
         minSdkVersion 18
-        targetSdkVersion 25
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        renderscriptTargetApi 21
+        renderscriptSupportModeEnabled true
     }
     buildTypes {
         release {
