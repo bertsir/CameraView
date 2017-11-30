@@ -5,7 +5,7 @@ An Android CameraView
 
 引入：
 
-compile 'cn.bertsir.Cameralibary:cameralibary:1.0.3'
+compile 'cn.bertsir.Cameralibary:cameralibary:1.0.8'
 
 布局:
 
