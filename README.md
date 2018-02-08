@@ -4,9 +4,9 @@ An Android CameraView
 ###使用方法：
 
 引入：
-
-compile 'cn.bertsir.Cameralibary:cameralibary:1.0.3'
-
+<pre>
+compile 'cn.bertsir.Cameralibary:cameralibary:1.0.8'
+</pre>
 布局:
 
 
