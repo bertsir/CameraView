@@ -5,7 +5,7 @@ An Android CameraView
 
 引入：
 <pre>
-compile 'cn.bertsir.Cameralibary:cameralibary:1.0.8'
+compile 'cn.bertsir.Cameralibary:cameralibary:2.0.0'
 </pre>
 布局:
 
@@ -101,3 +101,5 @@ OK,就这么简单，一个摄像头View就创建好了
 具体使用方法参考Demo
 
 
+### 2018.02.08 更新
+优化了摄像头高斯模糊的卡顿，如丝般顺滑
