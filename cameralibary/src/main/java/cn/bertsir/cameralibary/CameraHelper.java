@@ -69,9 +69,9 @@ public class CameraHelper {
                 }else {
                     mCamera = Camera.open(Camera.CameraInfo.CAMERA_FACING_FRONT);
                 }
-
-                setCameraDisplayOrientation(activity, back,
-                        mCamera);
+//
+//                setCameraDisplayOrientation(activity, back,
+//                        mCamera);
                 Camera.Parameters parameters = mCamera.getParameters();
                 if(current_camrea == CAMERA_BACK){
                     parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
@@ -92,6 +92,7 @@ public class CameraHelper {
                     }
                 mCamera.setParameters(parameters);
                 mCamera.setPreviewDisplay(mSurfaceholder);
+                mCamera.setDisplayOrientation(90);
                 mCamera.startPreview();
 
                 mCamera.setPreviewCallback(new Camera.PreviewCallback() {

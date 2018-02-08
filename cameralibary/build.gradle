@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
-version = "1.0.3" // 修改为你的版本号
+version = "2.0.0" // 修改为你的版本号
 
 android {
     compileSdkVersion 25
@@ -31,7 +31,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
-    testCompile 'junit:junit:4.12'
 }
 
 def siteUrl = 'https://github.com/bertsir/CameraView' // 修改为你的项目的主页

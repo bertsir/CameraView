@@ -61,13 +61,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 cv.takePhotoAddWaterMask(BitmapFactory.decodeResource(getResources(), R.drawable.cb), 50, 50, savePath);
                 break;
             case R.id.bt_blur:
-                CameraBlurUtils.getInstance().init(this);
-                cv.setPreviewFrameListener(new PreviewFrameListener() {
-                    @Override
-                    public void onPreviewFrameListener(byte[] data, Camera camera) {
-                        bpv.setBlurFrame(CameraBlurUtils.getInstance().blur(data,camera,15f));
-                    }
-                });
+
+                    CameraBlurUtils.getInstance().init(this);
+                    cv.setPreviewFrameListener(new PreviewFrameListener() {
+                        @Override
+                        public void onPreviewFrameListener(byte[] data, Camera camera) {
+                            bpv.setVisibility(View.VISIBLE);
+                            bpv.setBlurFrame(CameraBlurUtils.getInstance().blur(data,camera,25f));
+                        }
+                    });
+
+
                 break;
         }
     }
